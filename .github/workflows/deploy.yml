@@ -37,8 +37,15 @@ jobs:
 
       - name: Deploy to xserver
         run: |
+          # リモートサーバー上で git のバージョンを確認
+          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 xs739875@sv14591.xserver.jp "git --version" 2>&1
+      
+          # リモートサーバー上で systemctl のステータスを確認
+          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 xs739875@sv14591.xserver.jp "sudo systemctl status Rest-API" 2>&1
+          
           # デプロイコマンドを実行します。以下は一般的な例です。実際のコマンドに置き換えてください。
-          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 -vvv xs739875@sv14591.xserver.jp "cd /home/xs739875/xs739875.xsrv.jp/public_html/API && git pull origin main && systemctl restart Rest-API" 2>&1
+          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 xs739875@sv14591.xserver.jp "cd /home/xs739875/xs739875.xsrv.jp/public_html/API && git pull origin main && systemctl restart Rest-API" 2>&1
+      
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  
 
