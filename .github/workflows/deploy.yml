@@ -32,7 +32,7 @@ jobs:
       - name: Deploy to xserver
         run: |
           # デプロイコマンドを実行します。以下は一般的な例です。実際のコマンドに置き換えてください。
-          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 -vvv xs739875@sv14591.xserver.jp "cd /home/xs739875/xs739875.xsrv.jp/public_html/api && git pull origin main && systemctl restart your-app"
+          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 -vvv xs739875@sv14591.xserver.jp "cd /home/xs739875/xs739875.xsrv.jp/public_html/API && git pull origin main && systemctl restart your-app"
 
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # SSH鍵をGitHub Secretsから取得します
