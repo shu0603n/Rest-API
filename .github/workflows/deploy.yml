@@ -40,9 +40,6 @@ jobs:
           # リモートサーバー上で git のバージョンを確認
           ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 xs739875@sv14591.xserver.jp "git --version" 2>&1
           
-          # サービスの状態を確認
-          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 xs739875@sv14591.xserver.jp "sudo systemctl status Rest-API" 2>&1
-    
           # リモートサーバー上で systemctl のステータスを確認
           ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 xs739875@sv14591.xserver.jp "systemctl status Rest-API" 2>&1
           
