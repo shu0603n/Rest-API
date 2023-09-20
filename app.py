@@ -8,7 +8,7 @@ class DatabaseConnection:
         self.ssh_host = 'sv14591.xserver.jp'
         self.ssh_port = 10022
         self.ssh_username = 'xs739875'
-        self.ssh_key_file = './xs739875.key'
+        self.ssh_key_file = './.ssh/xs739875.key'
 
         # MySQLデータベース接続情報
         self.mysql_host = '127.0.0.1'  # ローカルホスト（SSHトンネルを介して接続）
