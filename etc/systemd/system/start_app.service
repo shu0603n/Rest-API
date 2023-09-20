@@ -1,1 +1,11 @@
+[Unit]
+Description=Play sound effects at startup
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 start_app.py
+WorkingDirectory=/home/xs739875/xs739875.xsrv.jp/public_html/API/Rest-API
+
+[Install]
+WantedBy=multi-user.target
 
