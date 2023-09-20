@@ -28,6 +28,12 @@ jobs:
           cat key  # デバッグのために秘密鍵を表示
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Test SSH Connection
+        run: |
+          ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 xs739875@sv14591.xserver.jp "echo 'SSH Connection Successful'"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - name: Deploy to xserver
         run: |
