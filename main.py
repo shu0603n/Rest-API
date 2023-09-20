@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from DatabaseConnection import DatabaseConnection
+from DatabaseSSHConnection import DatabaseSSHConnection
 
 app = FastAPI()
 # DatabaseConnectionクラスのインスタンスを作成
-db_connection = DatabaseConnection()
+db_connection = DatabaseSSHConnection()
 
 @app.on_event("startup")
 async def startup_event():
