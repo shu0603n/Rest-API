@@ -5,6 +5,13 @@ app = FastAPI()
 # DatabaseConnectionクラスのインスタンスを作成
 db_connection = DatabaseSSHConnection()
 
+# 接続テスト
+query = "SELECT * FROM skill"
+result = db_connection.execute_query(query)
+    
+print(result)
+
+
 @app.on_event("startup")
 async def startup_event():
     # アプリケーション起動時にデータベースに接続
